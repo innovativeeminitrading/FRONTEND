@@ -18,3 +18,5 @@ frontend/
 ├── package.json
 ├── vite.config.js
 └── README.md
+git add .
+&& git commit -m "Trigger redeploy" && git push
