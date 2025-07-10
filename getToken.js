@@ -12,3 +12,13 @@ firebase.initializeApp(firebaseConfig);
 // 🔑 Replace with your test email/password from Firebase Auth
 const email = "fordhamrobert733@gmail.com";
 const password = "Base_1924";
+firebase.auth().signInWithEmailAndPassword(email, password)
+  .then(userCredential => {
+    return userCredential.user.getIdToken();
+  })
+  .then(idToken => {
+    console.log("🔥 Firebase ID Token:", idToken);
+  })
+  .catch(error => {
+    console.error("❌ Error:", error.message);
+  });
