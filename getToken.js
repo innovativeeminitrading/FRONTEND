@@ -1,24 +1,19 @@
-const firebase = require('firebase/app');
-require('firebase/auth');
+const admin = require("firebase-admin");
+const serviceAccount = require("./serviceAccountKey.json"); // path to your downloaded key
 
-// 🔐 Replace this with your Firebase config object
-const firebaseConfig = {
-  apiKey: "AIzaSyC-dTtCavEwJBpKps1BsErmKknEv3zhPD4",
-  authDomain: "fir-innovative mini.firebaseapp.com",
-  projectId:"fir-innovativeemini",
-};
-firebase.initializeApp(firebaseConfig);
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
 
-// 🔑 Replace with your test email/password from Firebase Auth
-const email = "fordhamrobert733@gmail.com";
-const password = "Base_1924";
-firebase.auth().signInWithEmailAndPassword(email, password)
-  .then(userCredential => {
-    return userCredential.user.getIdToken();
+// Get UID from Firebase (by email)
+admin.auth().getUserByEmail("fordhamrobert733@gmail.com")
+  .then(userRecord => {
+    console.log("✅ UID:", userRecord.uid);
+    return admin.auth().createCustomToken(userRecord.uid);
   })
-  .then(idToken => {
-    console.log("🔥 Firebase ID Token:", idToken);
+  .then(customToken => {
+    console.log("🔥 Firebase Custom Token:", customToken);
   })
   .catch(error => {
-    console.error("❌ Error:", error.message);
+    console.error("❌ Error:", error);
   });
