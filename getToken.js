@@ -11,8 +11,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // 🔑 Replace with your test email/password from Firebase Auth
-const email = "your@email.com";
-const password = "yourpassword";
+const email = "fordhamrobert733@gmail.com";
+const password = "Base_1924";
 
 firebase.auth().signInWithEmailAndPassword(email, password)
   .then(userCredential => {
