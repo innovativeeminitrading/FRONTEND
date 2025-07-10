@@ -3,11 +3,10 @@ require('firebase/auth');
 
 // 🔐 Replace this with your Firebase config object
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
+  apiKey: "AIzaSyC-dTtCavEwJBpKps1BsErmKknEv3zhPD4",
+  authDomain: "fir-innovative mini.firebaseapp.com",
+  projectId:"fir-innovativeemini",
 };
-
 firebase.initializeApp(firebaseConfig);
 
 // 🔑 Replace with your test email/password from Firebase Auth
