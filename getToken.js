@@ -1,3 +1,4 @@
+console.log("✅ Script started...");
 const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json"); // path to your downloaded key
 
