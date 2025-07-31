@@ -1,22 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 function App() {
-  const [message, setMessage] = useState('Loading...');
-
-  useEffect(() => {
-    fetch('https://backend-nd40.onrender.com')
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message))
-      .catch((err) => {
-        console.error(err);
-        setMessage('Error fetching backend');
-      });
-  }, []);
-
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1>Welcome to Innovative Emini Trading</h1>
-      <p>Backend says: {message}</p>
+      <p>This is your Vite + React setup.</p>
     </div>
   );
 }
